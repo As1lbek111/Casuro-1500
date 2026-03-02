@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CASURO.WEAR — Premium Kiyimlar</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --navy: #0d1b2a;
+  --navy2: #112236;
+  --navy3: #1a2f45;
+  --cream: #f5f0e8;
+  --cream2: #ede6d6;
+  --gold: #c9a84c;
+  --gold2: #e8c97e;
+  --white: #ffffff;
+  --muted: rgba(245,240,232,0.45);
+  --border: rgba(201,168,76,0.18);
+  --ff: 'Cormorant Garamond', serif;
+  --fs: 'Montserrat', sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--navy);color:var(--cream);font-family:var(--fs);overflow-x:hidden;}
+::selection{background:var(--gold);color:var(--navy);}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 48px;height:72px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(13,27,42,0.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  transition:all 0.3s;
+}
+.logo{
+  font-family:var(--ff);font-size:22px;font-weight:300;letter-spacing:6px;
+  color:var(--white);text-transform:uppercase;cursor:pointer;
+  transition:color 0.3s;
+}
+.logo:hover{color:var(--gold);}
+.logo span{color:var(--gold);font-style:italic;}
+.nav-center{display:flex;gap:36px;}
+.nav-center a{
+  font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;transition:color 0.3s;padding:4px 0;
+  border-bottom:1px solid transparent;
+}
+.nav-center a:hover{color:var(--cream);border-bottom-color:var(--gold);}
+.nav-right{display:flex;align-items:center;gap:20px;}
+.nav-icon-btn{
+  background:none;border:none;color:var(--muted);font-size:16px;
+  cursor:pointer;transition:color 0.3s;position:relative;
+}
+.nav-icon-btn:hover{color:var(--cream);}
+.cart-count{
+  position:absolute;top:-7px;right:-7px;
+  width:16px;height:16px;border-radius:50%;
+  background:var(--gold);color:var(--navy);
+  font-size:9px;font-weight:700;font-family:var(--fs);
+  display:flex;align-items:center;justify-content:center;
+}
+.btn-tg{
+  display:flex;align-items:center;gap:7px;
+  background:rgba(34,158,217,0.15);border:1px solid rgba(34,158,217,0.35);
+  color:#5bc8f0;font-size:11px;font-weight:500;letter-spacing:1px;
+  padding:8px 16px;border-radius:3px;cursor:pointer;text-decoration:none;
+  transition:all 0.3s;
+}
+.btn-tg:hover{background:rgba(34,158,217,0.25);color:#7dd8f8;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+.hamburger span{width:22px;height:1px;background:var(--cream);transition:0.3s;}
+
+/* ===== PAGES ===== */
+.page{display:none;}
+.page.active{display:block;}
+
+/* ===== HERO ===== */
+.hero{
+  height:100vh;min-height:700px;
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 60% 40%, rgba(201,168,76,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 20% 70%, rgba(17,34,54,0.8) 0%, transparent 70%),
+    linear-gradient(160deg, #0a1520 0%, #0d1b2a 40%, #112236 100%);
+}
+.hero-grid-lines{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+.hero-content{
+  position:relative;z-index:2;
+  text-align:center;padding:0 24px;
+  max-width:900px;
+  animation:fadeUp 1s ease both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:10px;font-weight:500;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:32px;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:40px;height:1px;background:var(--gold);opacity:0.5;}
+.hero-h1{
+  font-family:var(--ff);
+  font-size:clamp(64px,10vw,130px);
+  font-weight:300;line-height:0.9;
+  color:var(--white);letter-spacing:-1px;
+  margin-bottom:8px;
+}
+.hero-h1 em{color:var(--gold);font-style:italic;font-weight:300;}
+.hero-sub{
+  font-family:var(--ff);font-size:clamp(22px,3vw,36px);
+  font-weight:300;font-style:italic;color:var(--muted);
+  margin-bottom:40px;letter-spacing:1px;
+}
+.hero-desc{
+  font-size:12px;font-weight:300;letter-spacing:2px;
+  color:var(--muted);margin-bottom:52px;line-height:2;
+  text-transform:uppercase;
+}
+.hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.btn-primary{
+  background:var(--gold);color:var(--navy);
+  font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  padding:16px 44px;border:none;cursor:pointer;
+  transition:all 0.3s;font-family:var(--fs);text-decoration:none;
+  display:inline-flex;align-items:center;gap:10px;
+}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-1px);box-shadow:0 12px 40px rgba(201,168,76,0.25);}
+.btn-outline{
+  background:transparent;color:var(--cream);
+  font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;
+  padding:16px 44px;border:1px solid rgba(245,240,232,0.25);cursor:pointer;
+  transition:all 0.3s;font-family:var(--fs);
+}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.hero-scroll{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-size:9px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;
+  animation:bounce 2s infinite;
+}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(-6px);}}
+.hero-scroll i{font-size:14px;color:var(--gold);}
+
+/* ===== AD STRIP ===== */
+.ad-strip{
+  background:var(--gold);padding:12px 48px;
+  display:flex;align-items:center;justify-content:center;gap:48px;
+  flex-wrap:wrap;overflow:hidden;
+}
+.ad-item{
+  font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--navy);display:flex;align-items:center;gap:10px;white-space:nowrap;
+}
+.ad-item i{font-size:13px;}
+.ad-sep{color:rgba(13,27,42,0.3);font-size:18px;}
+
+/* ===== SECTION ===== */
+.section{padding:100px 48px;}
+.section-eyebrow{
+  font-size:10px;font-weight:500;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:14px;
+}
+.section-eyebrow::after{content:'';flex:0 0 40px;height:1px;background:var(--gold);opacity:0.5;}
+.section-title{
+  font-family:var(--ff);font-size:clamp(38px,5vw,64px);
+  font-weight:300;color:var(--white);line-height:1.05;margin-bottom:60px;
+}
+.section-title em{color:var(--gold);font-style:italic;}
+
+/* ===== FEATURED ADS (big editorial grid) ===== */
+.editorial-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr;
+  grid-template-rows:auto auto;
+  gap:2px;max-width:1400px;margin:0 auto;
+}
+.ed-card{
+  position:relative;overflow:hidden;cursor:pointer;
+  background:var(--navy2);
+}
+.ed-card:hover .ed-img-inner{transform:scale(1.04);}
+.ed-card:hover .ed-overlay{opacity:1;}
+.ed-card.tall{grid-row:span 2;}
+.ed-img{width:100%;overflow:hidden;}
+.ed-img-inner{
+  width:100%;aspect-ratio:3/4;
+  display:flex;align-items:center;justify-content:center;
+  font-size:120px;
+  background:var(--navy2);
+  transition:transform 0.6s ease;
+  position:relative;
+}
+.ed-card.tall .ed-img-inner{aspect-ratio:unset;height:100%;min-height:600px;}
+.ed-img-inner::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(13,27,42,0.85) 0%, transparent 50%);
+}
+.ed-overlay{
+  position:absolute;inset:0;background:rgba(13,27,42,0.3);
+  opacity:0;transition:0.4s;display:flex;align-items:center;justify-content:center;
+}
+.ed-overlay-btn{
+  background:var(--gold);color:var(--navy);
+  font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  padding:14px 32px;border:none;cursor:pointer;font-family:var(--fs);
+  transform:translateY(10px);transition:transform 0.3s;
+}
+.ed-card:hover .ed-overlay-btn{transform:translateY(0);}
+.ed-info{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:28px 32px;
+}
+.ed-tag{
+  font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:8px;display:block;
+}
+.ed-name{
+  font-family:var(--ff);font-size:26px;font-weight:300;color:var(--white);
+  margin-bottom:6px;line-height:1.2;
+}
+.ed-price{font-size:13px;font-weight:500;color:var(--cream2);letter-spacing:1px;}
+.ed-price s{color:var(--muted);margin-right:8px;}
+
+/* ===== CATEGORIES SECTION ===== */
+.cats-section{
+  background:var(--navy2);padding:80px 48px;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.cats-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:2px;max-width:1400px;margin:0 auto;
+}
+.cat-card{
+  background:var(--navy3);
+  position:relative;overflow:hidden;cursor:pointer;
+  aspect-ratio:2/3;display:flex;flex-direction:column;
+  align-items:center;justify-content:flex-end;padding:28px 20px;
+  transition:all 0.4s;border:1px solid transparent;
+}
+.cat-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.4);}
+.cat-emoji{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);
+  font-size:72px;transition:transform 0.4s;opacity:0.9;
+}
+.cat-card:hover .cat-emoji{transform:translate(-50%,-65%) scale(1.1);}
+.cat-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(to top, var(--navy) 0%, transparent 60%);
+  transition:0.4s;
+}
+.cat-card:hover .cat-bg{background:linear-gradient(to top, rgba(13,27,42,0.95) 0%, rgba(17,34,54,0.4) 60%);}
+.cat-label{
+  position:relative;z-index:1;text-align:center;
+}
+.cat-label span{
+  font-family:var(--ff);font-size:20px;font-weight:300;
+  color:var(--white);display:block;margin-bottom:4px;
+  letter-spacing:1px;
+}
+.cat-label small{
+  font-size:9px;font-weight:500;letter-spacing:2px;
+  text-transform:uppercase;color:var(--gold);
+}
+.cat-arrow{
+  position:absolute;bottom:16px;right:16px;
+  width:32px;height:32px;border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:var(--gold);opacity:0;transition:opacity 0.3s;
+}
+.cat-card:hover .cat-arrow{opacity:1;}
+
+/* ===== PRODUCTS SECTION ===== */
+.products-section{padding:100px 48px;background:var(--navy);}
+.products-filter{
+  display:flex;gap:0;margin-bottom:60px;
+  border-bottom:1px solid var(--border);
+  max-width:1400px;margin-left:auto;margin-right:auto;
+}
+.filter-btn{
+  font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);background:none;border:none;cursor:pointer;
+  padding:14px 24px;border-bottom:2px solid transparent;
+  transition:all 0.3s;font-family:var(--fs);margin-bottom:-1px;
+}
+.filter-btn:hover,.filter-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:2px;max-width:1400px;margin:0 auto;
+}
+.prod-card{
+  background:var(--navy2);position:relative;
+  overflow:hidden;cursor:pointer;
+  transition:all 0.4s;
+}
+.prod-card:hover{z-index:1;}
+.prod-card:hover .prod-img-wrap{transform:scale(1.03);}
+.prod-img-wrap{
+  aspect-ratio:3/4;
+  display:flex;align-items:center;justify-content:center;
+  font-size:88px;
+  background:linear-gradient(160deg, var(--navy2) 0%, var(--navy3) 100%);
+  transition:transform 0.5s ease;
+  position:relative;overflow:hidden;
+}
+.prod-img-wrap::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(13,27,42,0.6) 0%, transparent 40%);
+}
+.prod-badge{
+  position:absolute;top:16px;left:16px;z-index:2;
+  font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  padding:5px 12px;
+}
+.badge-new{background:var(--gold);color:var(--navy);}
+.badge-sale{background:#c0392b;color:#fff;}
+.prod-brand{
+  position:absolute;top:16px;right:16px;z-index:2;
+  font-size:8px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold);background:rgba(13,27,42,0.7);
+  padding:4px 10px;border:1px solid var(--border);
+}
+.prod-actions{
+  position:absolute;inset:0;z-index:3;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  background:rgba(13,27,42,0.4);
+  opacity:0;transition:opacity 0.3s;
+}
+.prod-card:hover .prod-actions{opacity:1;}
+.prod-btn{
+  background:var(--gold);color:var(--navy);
+  font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  padding:12px 24px;border:none;cursor:pointer;font-family:var(--fs);
+  transform:translateY(8px);transition:all 0.3s;
+}
+.prod-card:hover .prod-btn{transform:translateY(0);}
+.prod-btn-icon{
+  width:42px;height:42px;background:rgba(245,240,232,0.9);
+  display:flex;align-items:center;justify-content:center;
+  border:none;cursor:pointer;color:var(--navy);font-size:15px;
+  transform:translateY(8px);transition:all 0.3s 0.05s;
+}
+.prod-card:hover .prod-btn-icon{transform:translateY(0);}
+.prod-info{padding:20px 22px 24px;}
+.prod-info-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;}
+.prod-name{
+  font-family:var(--ff);font-size:20px;font-weight:400;
+  color:var(--cream);line-height:1.2;
+}
+.prod-price-wrap{text-align:right;}
+.prod-price{
+  font-size:15px;font-weight:500;color:var(--gold);
+  font-family:var(--ff);
+}
+.prod-old{font-size:12px;color:var(--muted);text-decoration:line-through;display:block;}
+.prod-cat-tag{font-size:9px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.prod-colors{display:flex;gap:6px;margin-top:12px;}
+.prod-color{width:14px;height:14px;border-radius:50%;border:1.5px solid transparent;cursor:pointer;transition:0.2s;}
+.prod-color:hover{border-color:var(--gold);transform:scale(1.2);}
+
+/* ===== PRODUCT DETAIL ===== */
+.detail-section{padding:80px 48px;max-width:1200px;margin:0 auto;}
+.detail-back{
+  font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);background:none;border:none;cursor:pointer;
+  display:flex;align-items:center;gap:10px;margin-bottom:48px;
+  font-family:var(--fs);transition:color 0.3s;
+}
+.detail-back:hover{color:var(--gold);}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.detail-gallery{}
+.detail-main-img{
+  aspect-ratio:3/4;background:var(--navy2);
+  display:flex;align-items:center;justify-content:center;font-size:140px;
+  border:1px solid var(--border);margin-bottom:12px;
+  position:relative;overflow:hidden;
+}
+.detail-main-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(13,27,42,0.3) 0%,transparent 40%);}
+.detail-thumbs{display:flex;gap:8px;}
+.detail-thumb{
+  flex:1;aspect-ratio:1;background:var(--navy2);
+  border:1px solid transparent;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;transition:0.3s;
+}
+.detail-thumb.active,.detail-thumb:hover{border-color:var(--gold);}
+.detail-info{}
+.detail-brand{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.detail-name{font-family:var(--ff);font-size:48px;font-weight:300;color:var(--white);line-height:1;margin-bottom:16px;}
+.detail-pricing{display:flex;align-items:baseline;gap:14px;margin-bottom:28px;}
+.detail-price{font-family:var(--ff);font-size:36px;font-weight:400;color:var(--gold);}
+.detail-oldprice{font-size:18px;color:var(--muted);text-decoration:line-through;}
+.detail-desc{font-size:13px;color:var(--muted);line-height:2;margin-bottom:32px;font-weight:300;}
+.opt-title{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.size-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;}
+.sz-btn{
+  min-width:46px;height:46px;padding:0 12px;
+  background:transparent;border:1px solid var(--border);
+  color:var(--cream);font-size:12px;font-weight:500;letter-spacing:1px;
+  cursor:pointer;transition:0.3s;font-family:var(--fs);
+}
+.sz-btn:hover,.sz-btn.active{background:var(--gold);border-color:var(--gold);color:var(--navy);}
+.color-row{display:flex;gap:10px;margin-bottom:32px;}
+.col-opt{
+  width:34px;height:34px;border-radius:50%;
+  border:2px solid transparent;cursor:pointer;transition:0.3s;
+}
+.col-opt:hover,.col-opt.active{border-color:var(--gold);transform:scale(1.15);}
+.qty-selector{display:flex;align-items:center;gap:0;margin-bottom:32px;}
+.qty-btn{
+  width:46px;height:46px;background:transparent;border:1px solid var(--border);
+  color:var(--cream);font-size:20px;cursor:pointer;transition:0.3s;font-family:var(--fs);
+}
+.qty-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--navy);}
+.qty-num{
+  width:60px;height:46px;background:var(--navy2);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;font-weight:500;
+}
+.detail-add-btn{
+  width:100%;background:var(--gold);color:var(--navy);
+  font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  padding:18px;border:none;cursor:pointer;font-family:var(--fs);
+  transition:all 0.3s;margin-bottom:14px;
+  display:flex;align-items:center;justify-content:center;gap:12px;
+}
+.detail-add-btn:hover{background:var(--gold2);}
+.detail-policy{
+  display:flex;gap:0;border:1px solid var(--border);
+}
+.policy-item{
+  flex:1;padding:14px 12px;text-align:center;
+  border-right:1px solid var(--border);font-size:10px;
+  color:var(--muted);line-height:1.6;
+}
+.policy-item:last-child{border-right:none;}
+.policy-item i{color:var(--gold);font-size:14px;display:block;margin-bottom:4px;}
+
+/* ===== CART DRAWER ===== */
+.drawer-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(13,27,42,0.7);backdrop-filter:blur(6px);}
+.drawer-overlay.open{display:block;}
+.drawer{
+  position:fixed;top:0;right:0;bottom:0;width:420px;max-width:100vw;
+  background:var(--navy);border-left:1px solid var(--border);z-index:201;
+  transform:translateX(100%);transition:transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  display:flex;flex-direction:column;
+}
+.drawer.open{transform:translateX(0);}
+.drawer-head{
+  padding:24px 32px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.drawer-head h3{font-family:var(--ff);font-size:24px;font-weight:300;letter-spacing:2px;color:var(--white);}
+.drawer-close{background:none;border:none;color:var(--muted);font-size:18px;cursor:pointer;transition:color 0.3s;padding:4px;}
+.drawer-close:hover{color:var(--cream);}
+.delivery-notice{
+  padding:12px 32px;background:rgba(201,168,76,0.08);
+  border-bottom:1px solid var(--border);
+  font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold);display:flex;align-items:center;gap:10px;
+}
+.drawer-body{flex:1;overflow-y:auto;padding:24px 32px;}
+.drawer-empty{text-align:center;padding:80px 20px;color:var(--muted);}
+.drawer-empty i{font-size:36px;margin-bottom:16px;display:block;opacity:0.4;}
+.drawer-empty p{font-family:var(--ff);font-size:22px;font-weight:300;margin-bottom:8px;color:var(--cream);}
+.drawer-empty small{font-size:11px;letter-spacing:1px;}
+.cart-item{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--border);}
+.ci-img{
+  width:76px;flex-shrink:0;aspect-ratio:3/4;
+  background:var(--navy2);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:28px;
+}
+.ci-info{flex:1;}
+.ci-name{font-family:var(--ff);font-size:18px;font-weight:300;color:var(--cream);margin-bottom:4px;}
+.ci-meta{font-size:10px;letter-spacing:1px;color:var(--muted);margin-bottom:10px;}
+.ci-price{font-size:14px;font-weight:500;color:var(--gold);margin-bottom:12px;}
+.ci-qty{display:flex;align-items:center;gap:8px;}
+.ci-qty-btn{
+  width:28px;height:28px;border:1px solid var(--border);background:none;
+  color:var(--cream);font-size:16px;cursor:pointer;transition:0.2s;
+  display:flex;align-items:center;justify-content:center;
+}
+.ci-qty-btn:hover{border-color:var(--gold);color:var(--gold);}
+.ci-remove{margin-left:auto;background:none;border:none;color:var(--muted);font-size:13px;cursor:pointer;transition:0.2s;}
+.ci-remove:hover{color:#c0392b;}
+.drawer-foot{padding:24px 32px;border-top:1px solid var(--border);}
+.total-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;}
+.total-label{font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.total-val{font-family:var(--ff);font-size:30px;font-weight:300;color:var(--gold);}
+.checkout-btn{
+  width:100%;background:var(--gold);color:var(--navy);
+  font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  padding:18px;border:none;cursor:pointer;font-family:var(--fs);
+  transition:all 0.3s;display:flex;align-items:center;justify-content:center;gap:12px;
+}
+.checkout-btn:hover{background:var(--gold2);}
+
+/* ===== CHECKOUT ===== */
+.checkout-wrap{max-width:1100px;margin:0 auto;padding:80px 48px;}
+.checkout-title{font-family:var(--ff);font-size:52px;font-weight:300;color:var(--white);margin-bottom:8px;}
+.checkout-sub{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:52px;}
+.checkout-grid{display:grid;grid-template-columns:1.3fr 0.7fr;gap:48px;}
+.co-section{margin-bottom:40px;}
+.co-section-title{
+  font-size:9px;font-weight:600;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:24px;padding-bottom:14px;
+  border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;
+}
+.co-section-title i{font-size:12px;}
+.fg{margin-bottom:18px;}
+.fl{display:block;font-size:9px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.fi{
+  width:100%;padding:14px 18px;
+  background:transparent;border:1px solid var(--border);
+  color:var(--cream);font-size:14px;font-family:var(--fs);outline:none;
+  transition:border-color 0.3s;
+}
+.fi:focus{border-color:var(--gold);}
+.fi::placeholder{color:rgba(245,240,232,0.25);}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.pay-opt{
+  display:flex;align-items:center;gap:16px;
+  border:1px solid var(--border);padding:16px 20px;cursor:pointer;
+  transition:all 0.3s;margin-bottom:10px;
+}
+.pay-opt.sel{border-color:var(--gold);background:rgba(201,168,76,0.05);}
+.pay-opt input[type=radio]{accent-color:var(--gold);width:16px;height:16px;}
+.pay-label{font-size:13px;font-weight:500;flex:1;letter-spacing:0.5px;}
+.pay-badge{
+  font-size:9px;font-weight:700;letter-spacing:1px;
+  padding:4px 10px;text-transform:uppercase;
+}
+.pb-click{background:#00aeef;color:#fff;}
+.pb-payme{background:#00c7b7;color:#fff;}
+.pb-bank{background:var(--navy3);color:var(--gold);border:1px solid var(--border);}
+.bank-detail{
+  background:var(--navy2);border:1px solid var(--border);
+  padding:20px;margin-top:8px;font-size:13px;line-height:2;
+  color:var(--muted);display:none;
+}
+.bank-detail strong{color:var(--cream);}
+.captcha-field{
+  display:flex;align-items:center;gap:14px;
+  border:1px solid var(--border);padding:14px 18px;margin-bottom:20px;
+}
+.captcha-field input{accent-color:var(--gold);width:18px;height:18px;}
+.captcha-field label{font-size:12px;letter-spacing:1px;color:var(--muted);}
+.order-sum-card{
+  background:var(--navy2);border:1px solid var(--border);
+  padding:32px;position:sticky;top:90px;
+}
+.os-title{font-family:var(--ff);font-size:26px;font-weight:300;color:var(--white);margin-bottom:24px;}
+.os-item{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--muted);}
+.os-item:last-of-type{border:none;}
+.os-total{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-top:1px solid var(--border);}
+.os-total span:first-child{font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.os-total span:last-child{font-family:var(--ff);font-size:28px;font-weight:300;color:var(--gold);}
+.delivery-note{font-size:10px;color:var(--muted);letter-spacing:0.5px;line-height:1.8;margin-top:16px;padding:16px;border:1px solid var(--border);}
+.delivery-note i{color:var(--gold);margin-right:6px;}
+
+/* ===== CONFIRMED ===== */
+.confirmed-wrap{
+  min-height:80vh;display:flex;align-items:center;justify-content:center;padding:80px 24px;
+}
+.confirmed-box{max-width:540px;width:100%;text-align:center;}
+.confirmed-mark{
+  width:72px;height:72px;border:1px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 32px;font-size:28px;color:var(--gold);
+}
+.confirmed-title{font-family:var(--ff);font-size:48px;font-weight:300;color:var(--white);margin-bottom:12px;line-height:1;}
+.confirmed-sub{font-size:12px;color:var(--muted);letter-spacing:1px;line-height:2;margin-bottom:40px;}
+.confirmed-num{
+  border:1px solid var(--border);padding:20px 32px;margin-bottom:32px;
+}
+.confirmed-num small{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;}
+.confirmed-num strong{font-family:var(--ff);font-size:28px;font-weight:300;color:var(--gold);}
+.confirmed-links{display:flex;flex-direction:column;gap:10px;}
+
+/* ===== ADMIN ===== */
+.admin-section{padding:60px 48px;max-width:1300px;margin:0 auto;}
+.admin-h{font-family:var(--ff);font-size:42px;font-weight:300;color:var(--white);margin-bottom:6px;}
+.admin-s{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:40px;}
+.a-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:40px;}
+.a-stat{background:var(--navy2);border:1px solid var(--border);padding:28px 24px;}
+.a-stat-l{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.a-stat-v{font-family:var(--ff);font-size:36px;font-weight:300;color:var(--white);}
+.a-stat-s{font-size:10px;color:var(--gold);margin-top:4px;letter-spacing:1px;}
+.a-table{background:var(--navy2);border:1px solid var(--border);overflow:hidden;}
+.a-table-head{
+  padding:20px 28px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.a-table-head h3{font-family:var(--ff);font-size:24px;font-weight:300;color:var(--white);}
+table{width:100%;border-collapse:collapse;}
+th{padding:14px 20px;text-align:left;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);}
+td{padding:14px 20px;font-size:13px;color:var(--cream);border-bottom:1px solid rgba(201,168,76,0.06);}
+tr:last-child td{border:none;}
+tr:hover td{background:rgba(201,168,76,0.03);}
+.s-badge{font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;display:inline-block;}
+.s-pending{background:rgba(251,191,36,0.12);color:#fbbf24;border:1px solid rgba(251,191,36,0.2);}
+.s-paid{background:rgba(74,222,128,0.12);color:#4ade80;border:1px solid rgba(74,222,128,0.2);}
+.s-done{background:rgba(201,168,76,0.12);color:var(--gold);border:1px solid var(--border);}
+.s-select{
+  background:var(--navy3);border:1px solid var(--border);
+  color:var(--cream);font-size:11px;padding:6px 10px;cursor:pointer;
+  outline:none;font-family:var(--fs);letter-spacing:0.5px;
+}
+#noOrdersMsg{text-align:center;padding:60px;color:var(--muted);font-family:var(--ff);font-size:22px;font-weight:300;}
+
+/* ===== FOOTER ===== */
+footer{background:var(--navy2);border-top:1px solid var(--border);padding:72px 48px 32px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:60px;}
+.footer-logo{font-family:var(--ff);font-size:28px;font-weight:300;letter-spacing:6px;text-transform:uppercase;color:var(--white);margin-bottom:16px;}
+.footer-logo span{color:var(--gold);font-style:italic;}
+.footer-tagline{font-size:12px;color:var(--muted);line-height:2;max-width:300px;margin-bottom:28px;}
+.footer-tg-links{display:flex;flex-direction:column;gap:8px;}
+.ftg{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;letter-spacing:1px;color:rgba(91,200,240,0.8);
+  text-decoration:none;transition:color 0.3s;
+}
+.ftg:hover{color:#7dd8f8;}
+.footer-h{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.footer-links{list-style:none;}
+.footer-links li{margin-bottom:12px;}
+.footer-links a{font-size:13px;color:var(--muted);text-decoration:none;letter-spacing:0.5px;transition:color 0.3s;}
+.footer-links a:hover{color:var(--cream);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-size:11px;color:var(--muted);letter-spacing:1px;}
+
+/* WA FLOAT */
+.wa-float{
+  position:fixed;bottom:32px;right:32px;z-index:99;
+  width:52px;height:52px;background:#25D366;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;color:#fff;text-decoration:none;
+  box-shadow:0 8px 24px rgba(37,211,102,0.35);
+  transition:all 0.3s;animation:popIn 0.5s ease 1s both;
+}
+@keyframes popIn{from{transform:scale(0);opacity:0;}to{transform:scale(1);opacity:1;}}
+.wa-float:hover{transform:scale(1.08);box-shadow:0 12px 32px rgba(37,211,102,0.45);}
+
+/* ADMIN LOGIN */
+.a-login-wrap{
+  display:none;position:fixed;inset:0;z-index:500;
+  background:rgba(13,27,42,0.95);backdrop-filter:blur(12px);
+  align-items:center;justify-content:center;
+}
+.a-login-wrap.open{display:flex;}
+.a-login-box{
+  text-align:center;padding:60px 48px;
+  border:1px solid var(--border);background:var(--navy2);
+  max-width:380px;width:100%;margin:20px;
+  animation:fadeUp 0.4s ease;
+}
+.a-login-box i{font-size:36px;color:var(--gold);margin-bottom:24px;}
+.a-login-box h2{font-family:var(--ff);font-size:32px;font-weight:300;color:var(--white);margin-bottom:8px;}
+.a-login-box p{font-size:11px;color:var(--muted);letter-spacing:1px;margin-bottom:32px;}
+.a-error{font-size:11px;color:#e74c3c;letter-spacing:1px;margin-top:12px;display:none;}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .editorial-grid{grid-template-columns:1fr;}.ed-card.tall{grid-row:auto;}
+  .cats-grid{grid-template-columns:repeat(3,1fr);}
+  .checkout-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .a-stats{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+  nav{padding:0 20px;}
+  .nav-center{display:none;position:fixed;top:72px;left:0;right:0;flex-direction:column;background:var(--navy);border-bottom:1px solid var(--border);padding:20px;gap:0;}
+  .nav-center.open{display:flex;}
+  .nav-center a{padding:14px 0;border-bottom:1px solid var(--border);}
+  .hamburger{display:flex;}
+  .btn-tg{display:none;}
+  .section,.products-section,.cats-section,.checkout-wrap,.admin-section{padding:60px 20px;}
+  .hero-content{padding:0 20px;}
+  .cats-grid{grid-template-columns:repeat(2,1fr);}
+  .detail-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .ad-strip{padding:12px 20px;gap:20px;}
+  .detail-section{padding:40px 20px;}
+  .products-filter{flex-wrap:wrap;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav id="mainNav">
+  <div class="logo" onclick="showPage('home')">CASURO<span>.wear</span></div>
+  <div class="nav-center" id="navLinks">
+    <a href="#" onclick="showPage('home');return false;">Bosh sahifa</a>
+    <a href="#" onclick="scrollToProducts();return false;">Mahsulotlar</a>
+    <a href="https://t.me/casuro_ad" target="_blank">Buyurtma</a>
+  </div>
+  <div class="nav-right">
+    <button class="nav-icon-btn" onclick="toggleDrawer()" title="Savatcha">
+      <i class="fas fa-bag-shopping"></i>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <a href="https://t.me/casuro_ad" class="btn-tg" target="_blank">
+      <i class="fab fa-telegram"></i> @casuro_ad
+    </a>
+    <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== HOME PAGE ===== -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Yangi Kolleksiya 2024</div>
+      <h1 class="hero-h1">CASURO<br><em>.wear</em></h1>
+      <p class="hero-sub">Premium kiyimlar brendiga xush kelibsiz</p>
+      <p class="hero-desc">Butun O'zbekiston · Yetkazib berish 2–15 kun · Click & Payme</p>
+      <div class="hero-cta">
+        <button class="btn-primary" onclick="scrollToProducts()">
+          <i class="fas fa-bag-shopping"></i> Kollekciyani Ko'rish
+        </button>
+        <a href="https://t.me/casuro_wear" target="_blank" class="btn-outline">
+          <i class="fab fa-telegram"></i> Kanalimiz
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Pastga</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- AD STRIP -->
+  <div class="ad-strip">
+    <div class="ad-item"><i class="fas fa-truck"></i> Yetkazib berish: 2–15 kun</div>
+    <div class="ad-sep">·</div>
+    <div class="ad-item"><i class="fas fa-weight-hanging"></i> Kargo: 100gr = 13 000 so'm</div>
+    <div class="ad-sep">·</div>
+    <div class="ad-item"><i class="fas fa-percent"></i> 50% Oldindan to'lov</div>
+    <div class="ad-sep">·</div>
+    <div class="ad-item"><i class="fas fa-ban"></i> Qaytarish yo'q</div>
+  </div>
+
+  <!-- EDITORIAL ADS -->
+  <section class="section" style="padding-bottom:0;">
+    <div style="max-width:1400px;margin:0 auto;">
+      <div class="section-eyebrow">Trendlar</div>
+      <h2 class="section-title">Eng Chiroyli<br><em>Kiyimlar</em></h2>
+    </div>
+    <div class="editorial-grid">
+      <div class="ed-card tall" onclick="openProduct(1)">
+        <div class="ed-img">
+          <div class="ed-img-inner">👗</div>
+        </div>
+        <div class="ed-overlay"><button class="ed-overlay-btn">Ko'rish</button></div>
+        <div class="ed-info">
+          <span class="ed-tag">Casuro.wear · Ayollar</span>
+          <div class="ed-name">Yozgi Ko'ylak</div>
+          <div class="ed-price"><s>240 000</s> 189 000 so'm</div>
+        </div>
+      </div>
+      <div>
+        <div class="ed-card" onclick="openProduct(2)">
+          <div class="ed-img">
+            <div class="ed-img-inner">🧥</div>
+          </div>
+          <div class="ed-overlay"><button class="ed-overlay-btn">Ko'rish</button></div>
+          <div class="ed-info">
+            <span class="ed-tag">Casuro.wear · Erkaklar</span>
+            <div class="ed-name">Premium Jemper</div>
+            <div class="ed-price">245 000 so'm</div>
+          </div>
+        </div>
+        <div class="ed-card" onclick="openProduct(5)" style="margin-top:2px;">
+          <div class="ed-img">
+            <div class="ed-img-inner">👘</div>
+          </div>
+          <div class="ed-overlay"><button class="ed-overlay-btn">Ko'rish</button></div>
+          <div class="ed-info">
+            <span class="ed-tag">Casuro.wear · Ayollar</span>
+            <div class="ed-name">Ayollar Bluzkasi</div>
+            <div class="ed-price"><s>200 000</s> 165 000 so'm</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <div class="cats-section" id="catsSection">
+    <div style="max-width:1400px;margin:0 auto;">
+      <div class="section-eyebrow">Kategoriyalar</div>
+      <h2 class="section-title" style="margin-bottom:48px;">Nima <em>Qidiryapsiz?</em></h2>
+    </div>
+    <div class="cats-grid">
+      <div class="cat-card" onclick="filterAndScroll('koylak')">
+        <div class="cat-emoji">👗</div>
+        <div class="cat-bg"></div>
+        <div class="cat-label">
+          <span>Ko'ylak</span>
+          <small>Dress & Tops</small>
+        </div>
+        <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="cat-card" onclick="filterAndScroll('oyoq')">
+        <div class="cat-emoji">👠</div>
+        <div class="cat-bg"></div>
+        <div class="cat-label">
+          <span>Oyoq Kiyim</span>
+          <small>Footwear</small>
+        </div>
+        <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="cat-card" onclick="filterAndScroll('shim')">
+        <div class="cat-emoji">👖</div>
+        <div class="cat-bg"></div>
+        <div class="cat-label">
+          <span>Shim</span>
+          <small>Trousers</small>
+        </div>
+        <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="cat-card" onclick="filterAndScroll('kurtka')">
+        <div class="cat-emoji">🧥</div>
+        <div class="cat-bg"></div>
+        <div class="cat-label">
+          <span>Kurtka</span>
+          <small>Jackets</small>
+        </div>
+        <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="cat-card" onclick="filterAndScroll('bosh')">
+        <div class="cat-emoji">🧢</div>
+        <div class="cat-bg"></div>
+        <div class="cat-label">
+          <span>Bosh Kiyim</span>
+          <small>Headwear</small>
+        </div>
+        <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <section class="products-section" id="productsSection">
+    <div style="max-width:1400px;margin:0 auto;">
+      <div class="section-eyebrow">Katalog</div>
+      <h2 class="section-title" style="margin-bottom:40px;">Barcha <em>Mahsulotlar</em></h2>
+      <div class="products-filter" id="productsFilter">
+        <button class="filter-btn active" onclick="filterProducts(this,'all')">Barchasi</button>
+        <button class="filter-btn" onclick="filterProducts(this,'koylak')">Ko'ylak</button>
+        <button class="filter-btn" onclick="filterProducts(this,'oyoq')">Oyoq Kiyim</button>
+        <button class="filter-btn" onclick="filterProducts(this,'shim')">Shim</button>
+        <button class="filter-btn" onclick="filterProducts(this,'kurtka')">Kurtka</button>
+        <button class="filter-btn" onclick="filterProducts(this,'bosh')">Bosh Kiyim</button>
+      </div>
+      <div class="products-grid" id="prodGrid"></div>
+    </div>
+  </section>
+
+</div><!-- end home -->
+
+<!-- ===== PRODUCT DETAIL ===== -->
+<div class="page" id="page-product">
+  <div style="padding-top:72px;">
+    <div class="detail-section">
+      <button class="detail-back" onclick="showPage('home')">
+        <i class="fas fa-arrow-left"></i> Orqaga qaytish
+      </button>
+      <div class="detail-grid" id="detailContent"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CHECKOUT ===== -->
+<div class="page" id="page-checkout">
+  <div style="padding-top:72px;">
+    <div class="checkout-wrap">
+      <h1 class="checkout-title">Buyurtma</h1>
+      <p class="checkout-sub">Ma'lumotlaringizni kiriting va to'lovni amalga oshiring</p>
+      <div class="checkout-grid">
+        <div>
+          <!-- Info -->
+          <div class="co-section">
+            <div class="co-section-title"><i class="fas fa-user"></i> Shaxsiy Ma'lumotlar</div>
+            <div class="frow">
+              <div class="fg"><label class="fl">Ism</label><input class="fi" id="co_name" type="text" placeholder="Ismoil"></div>
+              <div class="fg"><label class="fl">Familiya</label><input class="fi" id="co_sur" type="text" placeholder="Karimov"></div>
+            </div>
+            <div class="fg"><label class="fl">Telefon</label><input class="fi" id="co_tel" type="tel" placeholder="+998 90 123 45 67"></div>
+            <div class="fg"><label class="fl">Manzil (ixtiyoriy)</label><input class="fi" id="co_addr" type="text" placeholder="Toshkent, ..."></div>
+          </div>
+          <!-- Payment -->
+          <div class="co-section">
+            <div class="co-section-title"><i class="fas fa-credit-card"></i> To'lov Usuli</div>
+            <div class="pay-opt sel" onclick="selPay(this,'click')">
+              <input type="radio" name="pay" checked>
+              <span class="pay-label">Click</span>
+              <span class="pay-badge pb-click">CLICK</span>
+            </div>
+            <div class="pay-opt" onclick="selPay(this,'payme')">
+              <input type="radio" name="pay">
+              <span class="pay-label">Payme</span>
+              <span class="pay-badge pb-payme">PAYME</span>
+            </div>
+            <div class="pay-opt" onclick="selPay(this,'bank')">
+              <input type="radio" name="pay">
+              <span class="pay-label">Bank o'tkazmasi</span>
+              <span class="pay-badge pb-bank">BANK</span>
+            </div>
+            <div class="bank-detail" id="bankDetail">
+              <strong>Bank ma'lumotlari:</strong><br>
+              Bank: Kapitalbank<br>
+              Karta: <strong style="color:var(--gold);">8600 XXXX XXXX XXXX</strong><br>
+              Egasi: Casuro Wear<br>
+              <em style="font-size:11px;">To'lovdan so'ng chekni @casuro_ad ga yuboring</em>
+            </div>
+            <div class="captcha-field">
+              <input type="checkbox" id="co_cap" onchange="document.getElementById('placeBtn').disabled=!this.checked">
+              <label for="co_cap">Men robot emasman</label>
+              <div style="margin-left:auto;text-align:center;font-size:9px;color:var(--muted);">
+                <i class="fas fa-shield-alt" style="color:#4285f4;font-size:18px;display:block;margin-bottom:2px;"></i>reCAPTCHA
+              </div>
+            </div>
+            <button class="checkout-btn" id="placeBtn" disabled onclick="placeOrder()" style="font-size:11px;letter-spacing:3px;">
+              <i class="fas fa-lock"></i> Buyurtma Berish
+            </button>
+          </div>
+        </div>
+        <!-- Order summary -->
+        <div>
+          <div class="order-sum-card">
+            <div class="os-title">Buyurtmangiz</div>
+            <div id="osSummary"></div>
+            <div class="os-total">
+              <span>Jami</span>
+              <span id="osTotal">0 so'm</span>
+            </div>
+            <div class="delivery-note">
+              <i class="fas fa-truck"></i> Yetkazib berish: 2–15 kun<br>
+              <i class="fas fa-weight-hanging"></i> Kargo: 100gr = 13 000 so'm<br>
+              <i class="fas fa-percent"></i> 50% oldindan to'lov talab etiladi<br>
+              <i class="fas fa-ban"></i> Qaytarish yo'q
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONFIRMED ===== -->
+<div class="page" id="page-confirmed">
+  <div style="padding-top:72px;">
+    <div class="confirmed-wrap">
+      <div class="confirmed-box">
+        <div class="confirmed-mark"><i class="fas fa-check"></i></div>
+        <h1 class="confirmed-title">Buyurtma<br><em style="font-style:italic;color:var(--gold);">Qabul Qilindi</em></h1>
+        <p class="confirmed-sub">Tabriklaymiz! Buyurtmangiz muvaffaqiyatli qabul qilindi.<br>50% to'lovni amalga oshiring va chekni yuboring.</p>
+        <div class="confirmed-num">
+          <small>Buyurtma raqami</small>
+          <strong id="confNum">#CW-0000</strong>
+        </div>
+        <div class="confirmed-links">
+          <button class="btn-primary" onclick="showPage('home')" style="width:100%;justify-content:center;">
+            <i class="fas fa-home"></i> Bosh Sahifaga
+          </button>
+          <a href="https://t.me/casuro_ad" target="_blank" class="btn-tg" style="justify-content:center;padding:16px;">
+            <i class="fab fa-telegram"></i> @casuro_ad ga chek yuboring
+          </a>
+          <div style="display:flex;gap:10px;margin-top:4px;">
+            <a href="https://t.me/casuro_wear" target="_blank" class="btn-tg" style="flex:1;justify-content:center;">@casuro_wear</a>
+            <a href="https://t.me/bexa_style_uz" target="_blank" class="btn-tg" style="flex:1;justify-content:center;">@bexa_style_uz</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ADMIN ===== -->
+<div class="page" id="page-admin">
+  <div style="padding-top:72px;">
+    <div class="admin-section">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:20px;margin-bottom:40px;">
+        <div>
+          <div class="admin-h">Admin Panel</div>
+          <div class="admin-s">Buyurtmalar boshqaruvi</div>
+        </div>
+        <button class="btn-outline" onclick="showPage('home')" style="font-size:10px;letter-spacing:2px;padding:12px 28px;">
+          <i class="fas fa-store"></i> Do'konga qaytish
+        </button>
+      </div>
+      <div class="a-stats" id="aStats">
+        <div class="a-stat"><div class="a-stat-l">Jami buyurtmalar</div><div class="a-stat-v" id="aStat1">0</div><div class="a-stat-s">Barcha vaqt</div></div>
+        <div class="a-stat"><div class="a-stat-l">To'langan</div><div class="a-stat-v" id="aStat2">0</div><div class="a-stat-s">Tasdiqlangan</div></div>
+        <div class="a-stat"><div class="a-stat-l">Kutilmoqda</div><div class="a-stat-v" id="aStat3">0</div><div class="a-stat-s">Jarayonda</div></div>
+        <div class="a-stat"><div class="a-stat-l">Daromad (so'm)</div><div class="a-stat-v" id="aStat4">0</div><div class="a-stat-s">To'langan buyurtmalar</div></div>
+      </div>
+      <div class="a-table">
+        <div class="a-table-head">
+          <h3>Buyurtmalar</h3>
+          <button class="btn-outline" style="font-size:9px;letter-spacing:2px;padding:10px 20px;" onclick="clearOrders()">Tozalash</button>
+        </div>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead><tr>
+              <th>№</th><th>Mijoz</th><th>Telefon</th><th>Mahsulot</th><th>Summa</th><th>To'lov</th><th>Status</th><th>O'zgartirish</th>
+            </tr></thead>
+            <tbody id="ordersBody"></tbody>
+          </table>
+        </div>
+        <div id="noOrdersMsg" style="display:none;">Hozircha buyurtmalar yo'q</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">CASURO<span>.wear</span></div>
+      <p class="footer-tagline">Premium import kiyimlar. Yetkazib berish 2–15 kun. Butun O'zbekiston bo'ylab. Kargo 100gr = 13 000 so'm. 50% oldindan to'lov. Qaytarish yo'q.</p>
+      <div class="footer-tg-links">
+        <a href="https://t.me/casuro_wear" target="_blank" class="ftg"><i class="fab fa-telegram"></i> @casuro_wear</a>
+        <a href="https://t.me/bexa_style_uz" target="_blank" class="ftg"><i class="fab fa-telegram"></i> @bexa_style_uz</a>
+        <a href="https://t.me/casuro_ad" target="_blank" class="ftg" style="color:rgba(240,180,100,0.8);"><i class="fab fa-telegram"></i> Buyurtma: @casuro_ad</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-h">Havolalar</div>
+      <ul class="footer-links">
+        <li><a href="#" onclick="showPage('home')">Bosh sahifa</a></li>
+        <li><a href="#" onclick="scrollToProducts()">Mahsulotlar</a></li>
+        <li><a href="https://t.me/casuro_ad" target="_blank">Buyurtma berish</a></li>
+        <li><a href="https://t.me/casuro_wear" target="_blank">Kanalimiz</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-h">Ma'lumot</div>
+      <ul class="footer-links">
+        <li><a href="#">Yetkazib berish: 2–15 kun</a></li>
+        <li><a href="#">Kargo: 100gr = 13 000 so'm</a></li>
+        <li><a href="#">50% oldindan to'lov</a></li>
+        <li><a href="#">Qaytarish yo'q</a></li>
+        <li><a href="#">Click & Payme to'lov</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Casuro.wear · Bexa.style — Barcha huquqlar himoyalangan</p>
+    <p>@casuro_wear · @bexa_style_uz · @casuro_ad</p>
+  </div>
+</footer>
+
+<!-- WA -->
+<a href="https://wa.me/998901234567" target="_blank" class="wa-float"><i class="fab fa-whatsapp"></i></a>
+
+<!-- CART DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="toggleDrawer()"></div>
+<div class="drawer" id="cartDrawer">
+  <div class="drawer-head">
+    <h3>Savatcha</h3>
+    <button class="drawer-close" onclick="toggleDrawer()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="delivery-notice"><i class="fas fa-truck"></i> Yetkazib berish: 2–15 kun · 50% oldindan</div>
+  <div class="drawer-body" id="drawerBody">
+    <div class="drawer-empty">
+      <i class="fas fa-bag-shopping"></i>
+      <p>Savatchangiz bo'sh</p>
+      <small>Mahsulot qo'shish uchun katalogga o'ting</small>
+    </div>
+  </div>
+  <div class="drawer-foot" id="drawerFoot" style="display:none;">
+    <div class="total-row">
+      <span class="total-label">Jami</span>
+      <span class="total-val" id="drawerTotal">0 so'm</span>
+    </div>
+    <button class="checkout-btn" onclick="goCheckout()">
+      <i class="fas fa-lock"></i> Buyurtma Berish
+    </button>
+  </div>
+</div>
+
+<!-- ADMIN LOGIN -->
+<div class="a-login-wrap" id="adminLoginWrap">
+  <div class="a-login-box">
+    <i class="fas fa-shield-halved"></i>
+    <h2>Admin Panel</h2>
+    <p>Kirish uchun parolni kiriting</p>
+    <input class="fi" type="password" id="adminPass" placeholder="••••••••" style="text-align:center;letter-spacing:4px;font-size:20px;" onkeydown="if(event.key==='Enter')checkPass()">
+    <div class="a-error" id="adminErr"><i class="fas fa-xmark"></i> Noto'g'ri parol!</div>
+    <button class="btn-primary" style="width:100%;margin-top:20px;justify-content:center;" onclick="checkPass()">Kirish</button>
+    <button class="btn-outline" style="width:100%;margin-top:10px;" onclick="document.getElementById('adminLoginWrap').classList.remove('open')">Bekor qilish</button>
+  </div>
+</div>
+
+<script>
+// ============ PRODUCTS DATA ============
+const PRODUCTS = [
+  {id:1, name:"Yozgi Ko'ylak",      cat:"koylak",  emoji:"👗", price:189000, oldPrice:240000, badge:"sale", colors:["#ff9a9e","#ffeaa7","#81ecec","#1a1a1a"], sizes:["XS","S","M","L","XL"],       desc:"Engil va qulay yozgi ko'ylak. 100% paxta. Turli ranglarda mavjud. Har qanday tadbirga mos."},
+  {id:2, name:"Premium Jemper",     cat:"kurtka",  emoji:"🧥", price:245000, oldPrice:null,   badge:"new", colors:["#2d3436","#6c757d","#0984e3"],            sizes:["S","M","L","XL","XXL"],      desc:"Premium erkaklar jemperi. Yuqori sifatli mato. Issiq va zamonaviy ko'rinish."},
+  {id:3, name:"Klassik Shim",       cat:"shim",    emoji:"👖", price:195000, oldPrice:null,   badge:"new", colors:["#2d3436","#0984e3","#6c757d"],            sizes:["30","32","34","36","38"],     desc:"Klassik erkaklar shimi. Har qanday vaziyatga mos. Sifatli mato."},
+  {id:4, name:"Stil Ko'ylagi",      cat:"koylak",  emoji:"👘", price:165000, oldPrice:200000, badge:"sale",colors:["#ffffff","#ff9a9e","#fdcb6e"],            sizes:["XS","S","M","L"],            desc:"Zamonaviy stil ko'ylagi. Ofis va dam olish uchun ideal. Nafis dizayn."},
+  {id:5, name:"Ayollar Bluzkasi",   cat:"koylak",  emoji:"🎀", price:145000, oldPrice:null,   badge:null,  colors:["#fd79a8","#fdcb6e","#81ecec"],            sizes:["XS","S","M","L"],            desc:"Nafis ayollar bluzkasi. Yumshoq mato. Ko'p ranglarda mavjud."},
+  {id:6, name:"Sport Kurtka",       cat:"kurtka",  emoji:"🧤", price:320000, oldPrice:390000, badge:"sale",colors:["#1a1a1a","#e17055","#0984e3"],            sizes:["S","M","L","XL","XXL"],      desc:"Professional sport kurtkasi. Shamol va sovuqdan himoya."},
+  {id:7, name:"Sneakers",           cat:"oyoq",    emoji:"👟", price:280000, oldPrice:null,   badge:"new", colors:["#ffffff","#1a1a1a","#e74c3c"],            sizes:["36","37","38","39","40","41","42","43"], desc:"Zamonaviy sneakers. Qulay va chiroyli. Har kuni kiyish mumkin."},
+  {id:8, name:"Klassik Tufli",      cat:"oyoq",    emoji:"👠", price:250000, oldPrice:300000, badge:"sale",colors:["#1a1a1a","#8B4513","#C0C0C0"],            sizes:["36","37","38","39","40"],     desc:"Nafis klassik tufli. Har qanday kiyimga mos. Premium sifat."},
+  {id:9, name:"Baseball Cap",       cat:"bosh",    emoji:"🧢", price:89000,  oldPrice:null,   badge:"new", colors:["#1a1a1a","#2d3436","#e74c3c","#0984e3"], sizes:["S/M","L/XL"],                desc:"Zamonaviy baseball kepka. Yuqori sifatli material. Turli ranglar."},
+  {id:10,name:"Qish Shlyapasi",     cat:"bosh",    emoji:"🎩", price:120000, oldPrice:150000, badge:null,  colors:["#1a1a1a","#2d3436","#8B4513"],            sizes:["S","M","L"],                 desc:"Issiq qish shlyapasi. Shamoldan himoya. Eleganat dizayn."},
+];
+
+let cart = [];
+let orders = JSON.parse(localStorage.getItem('casuro_orders')||'[]');
+let ordNum = orders.length ? Math.max(...orders.map(o=>o.num))+1 : 1001;
+let selPayMethod = 'click';
+let curProduct = null;
+let adminOpen = false;
+
+// ============ RENDER PRODUCTS ============
+function fmt(n){ return n.toLocaleString('uz-UZ'); }
+function catName(c){ return{koylak:"Ko'ylak",oyoq:"Oyoq Kiyim",shim:"Shim",kurtka:"Kurtka",bosh:"Bosh Kiyim"}[c]||c; }
+
+function renderProds(filter='all'){
+  const list = filter==='all' ? PRODUCTS : PRODUCTS.filter(p=>p.cat===filter);
+  const el = document.getElementById('prodGrid');
+  if(!list.length){ el.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--muted);font-family:var(--ff);font-size:22px;font-weight:300;">Bu kategoriyada mahsulot yo\'q</div>'; return; }
+  el.innerHTML = list.map(p=>`
+    <div class="prod-card" onclick="openProduct(${p.id})">
+      <div class="prod-img-wrap">
+        <div class="prod-actions">
+          <button class="prod-btn" onclick="event.stopPropagation();quickAdd(${p.id})">Qo'shish</button>
+          <button class="prod-btn-icon" onclick="event.stopPropagation();openProduct(${p.id})"><i class="fas fa-eye"></i></button>
+        </div>
+        ${p.badge?`<span class="prod-badge badge-${p.badge}">${p.badge==='new'?'YANGI':'CHEGIRMA'}</span>`:''}
+        ${p.emoji}
+      </div>
+      <div class="prod-info">
+        <div class="prod-info-top">
+          <div>
+            <div class="prod-name">${p.name}</div>
+            <div class="prod-cat-tag">${catName(p.cat)}</div>
+          </div>
+          <div class="prod-price-wrap">
+            ${p.oldPrice?`<span class="prod-old">${fmt(p.oldPrice)}</span>`:''}
+            <div class="prod-price">${fmt(p.price)} so'm</div>
+          </div>
+        </div>
+        <div class="prod-colors">
+          ${p.colors.slice(0,5).map(c=>`<div class="prod-color" style="background:${c}"></div>`).join('')}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterProducts(btn, cat){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProds(cat);
+}
+
+function filterAndScroll(cat){
+  showPage('home');
+  setTimeout(()=>{
+    document.getElementById('productsSection').scrollIntoView({behavior:'smooth'});
+    document.querySelectorAll('.filter-btn').forEach(b=>{
+      b.classList.remove('active');
+      if(b.textContent.trim().toLowerCase().includes(cat.substring(0,4))) b.classList.add('active');
+    });
+    renderProds(cat);
+  },100);
+}
+
+function scrollToProducts(){
+  if(!document.getElementById('page-home').classList.contains('active')) showPage('home');
+  setTimeout(()=>document.getElementById('productsSection').scrollIntoView({behavior:'smooth'}),100);
+}
+
+// ============ PRODUCT DETAIL ============
+function openProduct(id){
+  curProduct = PRODUCTS.find(p=>p.id===id);
+  const p = curProduct;
+  window._qty=1; window._size=p.sizes[1]||p.sizes[0]; window._color=p.colors[0];
+  document.getElementById('detailContent').innerHTML=`
+    <div class="detail-gallery">
+      <div class="detail-main-img">${p.emoji}</div>
+      <div class="detail-thumbs">
+        ${[0,1,2,3].map(i=>`<div class="detail-thumb ${i===0?'active':''}" onclick="this.parentElement.querySelectorAll('.detail-thumb').forEach(t=>t.classList.remove('active'));this.classList.add('active')">${p.emoji}</div>`).join('')}
+      </div>
+    </div>
+    <div class="detail-info">
+      <div class="detail-brand">CASURO.WEAR · ${catName(p.cat)}</div>
+      <h1 class="detail-name">${p.name}</h1>
+      <div class="detail-pricing">
+        <span class="detail-price">${fmt(p.price)} so'm</span>
+        ${p.oldPrice?`<span class="detail-oldprice">${fmt(p.oldPrice)} so'm</span>`:''}
+      </div>
+      <p class="detail-desc">${p.desc}</p>
+      <div class="opt-title">O'lcham tanlang</div>
+      <div class="size-row">
+        ${p.sizes.map((s,i)=>`<button class="sz-btn ${i===1||i===0?'active':''}" onclick="document.querySelectorAll('.sz-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');window._size='${s}'">${s}</button>`).join('')}
+      </div>
+      <div class="opt-title">Rang tanlang</div>
+      <div class="color-row">
+        ${p.colors.map((c,i)=>`<div class="col-opt ${i===0?'active':''}" style="background:${c}" onclick="document.querySelectorAll('.col-opt').forEach(o=>o.classList.remove('active'));this.classList.add('active');window._color='${c}'"></div>`).join('')}
+      </div>
+      <div class="opt-title">Miqdor</div>
+      <div class="qty-selector">
+        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+        <div class="qty-num" id="detQty">1</div>
+        <button class="qty-btn" onclick="changeQty(1)">+</button>
+      </div>
+      <button class="detail-add-btn" onclick="addFromDetail()">
+        <i class="fas fa-bag-plus"></i> Savatchaga Qo'shish
+      </button>
+      <div class="detail-policy">
+        <div class="policy-item"><i class="fas fa-truck"></i>2–15 kun yetkazish</div>
+        <div class="policy-item"><i class="fas fa-percent"></i>50% oldindan to'lov</div>
+        <div class="policy-item"><i class="fas fa-ban"></i>Qaytarish yo'q</div>
+        <div class="policy-item"><i class="fas fa-lock"></i>Click & Payme</div>
+      </div>
+    </div>
+  `;
+  showPage('product');
+}
+function changeQty(d){ window._qty=Math.max(1,(window._qty||1)+d); document.getElementById('detQty').textContent=window._qty; }
+function addFromDetail(){ addToCart(curProduct.id, window._size, window._color, window._qty||1); }
+function quickAdd(id){ const p=PRODUCTS.find(x=>x.id===id); addToCart(id, p.sizes[1]||p.sizes[0], p.colors[0], 1); }
+
+// ============ CART ============
+function addToCart(id,size,color,qty=1){
+  const p=PRODUCTS.find(x=>x.id===id);
+  const key=`${id}-${size}-${color}`;
+  const ex=cart.find(i=>i.key===key);
+  if(ex) ex.qty+=qty; else cart.push({key,id,name:p.name,emoji:p.emoji,price:p.price,size,color,qty});
+  updateCart();
+  document.getElementById('drawerOverlay').classList.add('open');
+  document.getElementById('cartDrawer').classList.add('open');
+}
+function updateCart(){
+  const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const count=cart.reduce((s,i)=>s+i.qty,0);
+  document.getElementById('cartCount').textContent=count;
+  document.getElementById('drawerTotal').textContent=fmt(total)+' so\'m';
+  const body=document.getElementById('drawerBody');
+  const foot=document.getElementById('drawerFoot');
+  if(!cart.length){
+    foot.style.display='none';
+    body.innerHTML=`<div class="drawer-empty"><i class="fas fa-bag-shopping"></i><p>Savatchangiz bo'sh</p><small>Mahsulot qo'shish uchun katalogga o'ting</small></div>`;
+    return;
+  }
+  foot.style.display='block';
+  body.innerHTML=cart.map((it,i)=>`
+    <div class="cart-item">
+      <div class="ci-img">${it.emoji}</div>
+      <div class="ci-info">
+        <div class="ci-name">${it.name}</div>
+        <div class="ci-meta">${it.size} · <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${it.color};vertical-align:middle;"></span></div>
+        <div class="ci-price">${fmt(it.price*it.qty)} so'm</div>
+        <div class="ci-qty">
+          <button class="ci-qty-btn" onclick="cqty(${i},-1)">−</button>
+          <span style="font-size:14px;min-width:20px;text-align:center;">${it.qty}</span>
+          <button class="ci-qty-btn" onclick="cqty(${i},1)">+</button>
+          <button class="ci-remove" onclick="crem(${i})"><i class="fas fa-trash"></i></button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+function cqty(i,d){ cart[i].qty+=d; if(cart[i].qty<=0) cart.splice(i,1); updateCart(); }
+function crem(i){ cart.splice(i,1); updateCart(); }
+function toggleDrawer(){ document.getElementById('drawerOverlay').classList.toggle('open'); document.getElementById('cartDrawer').classList.toggle('open'); }
+
+// ============ CHECKOUT ============
+function goCheckout(){
+  toggleDrawer();
+  const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  document.getElementById('osSummary').innerHTML=cart.map(i=>`<div class="os-item"><span>${i.emoji} ${i.name} ×${i.qty}</span><span>${fmt(i.price*i.qty)} so'm</span></div>`).join('');
+  document.getElementById('osTotal').textContent=fmt(total)+' so\'m';
+  showPage('checkout');
+}
+function selPay(el,m){
+  selPayMethod=m;
+  document.querySelectorAll('.pay-opt').forEach(p=>{p.classList.remove('sel');p.querySelector('input').checked=false;});
+  el.classList.add('sel'); el.querySelector('input').checked=true;
+  document.getElementById('bankDetail').style.display=m==='bank'?'block':'none';
+}
+function placeOrder(){
+  const name=document.getElementById('co_name').value.trim();
+  const tel=document.getElementById('co_tel').value.trim();
+  if(!name||!tel){alert('Ism va telefon raqamni kiriting!');return;}
+  const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const o={num:ordNum++,name:name+' '+document.getElementById('co_sur').value.trim(),phone:tel,addr:document.getElementById('co_addr').value.trim()||'—',items:cart.map(i=>`${i.name}(${i.size})×${i.qty}`).join(', '),total,pay:selPayMethod.toUpperCase(),status:'pending',date:new Date().toLocaleString('uz-UZ')};
+  orders.push(o); localStorage.setItem('casuro_orders',JSON.stringify(orders));
+  document.getElementById('confNum').textContent='#CW-'+o.num;
+  cart=[]; updateCart(); showPage('confirmed');
+}
+
+// ============ ADMIN ============
+const ADMIN_PASS='casuro2024';
+let adminUnlocked=false;
+
+function openAdminLogin(){ document.getElementById('adminLoginWrap').classList.add('open'); document.getElementById('adminPass').value=''; document.getElementById('adminErr').style.display='none'; setTimeout(()=>document.getElementById('adminPass').focus(),100); }
+function checkPass(){
+  if(document.getElementById('adminPass').value===ADMIN_PASS){ adminUnlocked=true; document.getElementById('adminLoginWrap').classList.remove('open'); showPage('admin'); }
+  else { document.getElementById('adminErr').style.display='block'; document.getElementById('adminPass').value=''; }
+}
+document.addEventListener('keydown',e=>{ if(e.ctrlKey&&e.shiftKey&&e.key==='A') openAdminLogin(); });
+
+function renderAdmin(){
+  const t=orders.length, pd=orders.filter(o=>o.status!=='pending').length, pn=orders.filter(o=>o.status==='pending').length;
+  const rev=orders.filter(o=>o.status!=='pending').reduce((s,o)=>s+o.total,0);
+  document.getElementById('aStat1').textContent=t;
+  document.getElementById('aStat2').textContent=pd;
+  document.getElementById('aStat3').textContent=pn;
+  document.getElementById('aStat4').textContent=fmt(rev);
+  const tbody=document.getElementById('ordersBody');
+  document.getElementById('noOrdersMsg').style.display=orders.length?'none':'block';
+  if(!orders.length){tbody.innerHTML='';return;}
+  tbody.innerHTML=[...orders].reverse().map(o=>`
+    <tr>
+      <td><strong style="color:var(--gold);">#CW-${o.num}</strong><br><span style="font-size:10px;color:var(--muted);">${o.date}</span></td>
+      <td>${o.name}</td>
+      <td><a href="tel:${o.phone}" style="color:var(--gold);text-decoration:none;">${o.phone}</a></td>
+      <td style="font-size:11px;color:var(--muted);max-width:180px;">${o.items}</td>
+      <td style="color:var(--gold);font-weight:500;">${fmt(o.total)} so'm</td>
+      <td><span style="font-size:10px;font-weight:700;letter-spacing:1px;">${o.pay}</span></td>
+      <td><span class="s-badge s-${o.status}">${o.status==='pending'?'Kutilmoqda':o.status==='paid'?'To\'langan':'Yakunlandi'}</span></td>
+      <td><select class="s-select" onchange="updStatus(${o.num},this.value)">
+        <option value="pending" ${o.status==='pending'?'selected':''}>Kutilmoqda</option>
+        <option value="paid" ${o.status==='paid'?'selected':''}>To'langan</option>
+        <option value="completed" ${o.status==='completed'?'selected':''}>Yakunlandi</option>
+      </select></td>
+    </tr>
+  `).join('');
+}
+function updStatus(num,status){ const o=orders.find(x=>x.num===num); if(o){o.status=status;localStorage.setItem('casuro_orders',JSON.stringify(orders));renderAdmin();} }
+function clearOrders(){ if(confirm('Barcha buyurtmalarni o\'chirasizmi?')){ orders=[]; localStorage.setItem('casuro_orders','[]'); renderAdmin(); } }
+
+// ============ PAGE NAV ============
+function showPage(p){
+  if(p==='admin'&&!adminUnlocked){openAdminLogin();return;}
+  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+  document.getElementById('page-'+p).classList.add('active');
+  window.scrollTo(0,0);
+  document.getElementById('navLinks').classList.remove('open');
+  if(p==='admin') renderAdmin();
+}
+
+// ============ INIT ============
+renderProds('all');
+updateCart();
+
+// Navbar scroll effect
+window.addEventListener('scroll',()=>{
+  const nav=document.getElementById('mainNav');
+  nav.style.background=window.scrollY>50?'rgba(13,27,42,0.98)':'rgba(13,27,42,0.92)';
+});
+</script>
+</body>
+</html>
